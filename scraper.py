@@ -54,12 +54,12 @@ def setup_conection_reddit(subreddit):
 
 def image_scraper(post_link):
     htmlSource = requests.get(post_link).text
-    print (htmlSource[4:6])
+    print (htmlSource[4:6]) # Test
     soup = BeautifulSoup(htmlSource, 'html.parser')
     matches = soup.select('._3Oa0THmZ3f5iZXAQ0hBJ0k a')
     if matches:
         photoLink = matches[0]['href']
-        print(photoLink)
+        print(photoLink) # Test
         match = re.search(r'(https://i.redd.it/)(\w\w\w\w\w\w\w\w\w\w\w\w\w.jpg)', photoLink)
         if match:
             downloadImage(photoLink, redditPics)
